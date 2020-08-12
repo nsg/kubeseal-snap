@@ -1,6 +1,6 @@
-# kubeseal-nsg
+# sealed-secrets-kubeseal-nsg
 
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/kubeseal-nsg)
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/sealed-secrets-kubeseal-nsg)
 
 Kubeseal is the client for Sealed Secrets for Kubernetes.
 
@@ -19,11 +19,11 @@ There are a few limitations due snapd's sandbox:
 ## Install
 
 ```
-snap install kubeseal-nsg
+snap install sealed-secrets-kubeseal-nsg
 ```
 
 If you like to use the shorter command "kubeseal" add an alias:
 
 ```
-sudo snap alias kubeseal-nsg kubeseal
+sudo snap alias sealed-secrets-kubeseal-nsg kubeseal
 ```

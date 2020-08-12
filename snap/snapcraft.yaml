@@ -1,6 +1,6 @@
 ---
 
-name: kubeseal-nsg
+name: sealed-secrets-kubeseal-nsg
 base: core20
 adopt-info: detect-version
 summary: Kubeseal is the client for Sealed Secrets for Kubernetes
@@ -15,7 +15,7 @@ grade: stable
 confinement: strict
 
 apps:
-  kubeseal-nsg:
+  sealed-secrets-kubeseal-nsg:
     adapter: full
     command: bin/kubeseal
     plugs:
