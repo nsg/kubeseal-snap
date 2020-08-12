@@ -1,0 +1,39 @@
+---
+
+name: kubeseal-nsg
+base: core20
+adopt-info: detect-version
+summary: Kubeseal is the client for Sealed Secrets for Kubernetes
+description: |
+  The kubeseal utility uses asymmetric crypto to encrypt secrets that only the cluster can decrypt.
+  These encrypted secrets are encoded in a SealedSecret resource, once unsealed this will produce a normal
+  Secret inside the cluster.
+
+  For more information see https://github.com/bitnami-labs/sealed-secrets
+
+grade: stable
+confinement: strict
+
+apps:
+  kubeseal-nsg:
+    adapter: full
+    command: bin/kubeseal
+    plugs:
+      - home
+
+parts:
+  detect-version:
+    plugin: nil
+    override-build: |
+      apt -y install jq curl
+      VERSION=$(curl --silent "https://api.github.com/repos/bitnami-labs/sealed-secrets/releases/latest" | jq -r .tag_name)
+      snapcraftctl set-version $VERSION
+  
+  kubeseal:
+    plugin: go
+    source: https://github.com/bitnami-labs/sealed-secrets.git
+    source-tag: $SNAPCRAFT_PROJECT_VERSION
+    build-packages:
+      - libc6-dev
+    stage:
+      - bin/kubeseal
